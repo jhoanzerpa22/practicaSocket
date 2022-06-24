@@ -1,0 +1,27 @@
+<div
+    class="absolute inset-0 flex flex-col min-w-0 overflow-y-auto"
+    cdkScrollable>
+
+    <!-- Main -->
+    <div class="flex flex-auto p-6 sm:p-10">
+
+            <div cdkDropListGroup>
+                
+                <ng-container *ngFor="let t of filteredTablero | async">
+                <div class="example-container">
+                    <h2>{{t.title}}</h2>
+                
+                    <div
+                      cdkDropList
+                      [cdkDropListData]="t.data"
+                      class="example-list"
+                      (cdkDropListDropped)="drop($event)">
+                      <div class="example-box" *ngFor="let item of t.data" cdkDrag>{{item}}
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+</div>
+
+</div>
